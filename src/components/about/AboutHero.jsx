@@ -1,0 +1,83 @@
+import Image from "next/image";
+
+const facts = [
+  {
+    label: "Area",
+    value: (
+      <>
+        8,303 km<sup>2</sup>
+      </>
+    ),
+  },
+  { label: "Elevation", value: "595 m avg." },
+  { label: "Population", value: "~1.8 million" },
+  { label: "Sub-divisions", value: "3 (Keonjhar · Anandapur · Champua)" },
+  { label: "Blocks", value: "13" },
+  { label: "Languages", value: "Odia · Ho · Juang · Santali" },
+];
+
+export default function AboutHero() {
+  return (
+    <>
+      <section className="relative h-[560px] overflow-visible sm:h-[620px] md:h-[660px]">
+        <Image
+          src="/images/hero/about-keonjhar.png"
+          alt="Aerial view of Keonjhar forests"
+          fill
+          priority
+          className="object-cover"
+        />
+
+        <div className="absolute inset-0 bg-forest-dark/75" />
+
+        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 sm:px-8 lg:px-12">
+          <div>
+            <div className="mb-6 flex items-center gap-3 sm:mb-8">
+              <span className="h-px w-12 bg-gold" />
+
+              <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-gold">
+                About the district
+              </p>
+            </div>
+
+            <h1 className="max-w-4xl font-serif text-4xl leading-[1] tracking-[-0.02em] text-sand sm:text-5xl md:text-6xl lg:text-[4.5rem]">
+              A northern plateau shaped by rivers and iron.
+            </h1>
+
+            <p className="mt-6 max-w-2xl font-sans text-base font-medium leading-7 text-sand/85 sm:mt-8 sm:text-lg sm:leading-8">
+              Keonjhar sits in the northern reaches of Odisha — a district where
+              ancient geology, tribal culture and colonial-era history all meet
+              on the banks of the Baitarani.
+            </p>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-1/2 z-20 w-full max-w-6xl -translate-x-1/2 translate-y-1/2 px-4 sm:px-6 lg:px-0">
+          <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-sand-deep bg-sand shadow-[0_20px_45px_rgba(26,26,26,0.16)] sm:grid-cols-3 lg:grid-cols-6">
+            {facts.map((fact, index) => (
+              <div
+                key={fact.label}
+                className={`border-sand-deep px-5 py-6 sm:px-6 lg:px-7 ${
+                  index < 5 ? "border-r" : ""
+                }`}
+              >
+                <div className="mb-3 h-px w-10 bg-gold/70" />
+
+                <p className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-gold">
+                  {fact.label}
+                </p>
+
+                <div className="mt-3 font-serif text-lg leading-snug text-ink sm:text-xl lg:text-[1.4rem]">
+                  {fact.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Space for overlapping facts card */}
+      <div className="h-[160px] sm:h-[140px]" />
+    </>
+  );
+}

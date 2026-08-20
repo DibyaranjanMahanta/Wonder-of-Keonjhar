@@ -1,9 +1,15 @@
-import React from 'react'
+import AboutHero from "@/components/about/AboutHero";
+import LocationSection from "@/components/about/LocationSection";
+import HistorySection from "@/components/about/HistorySection";
+import CloserLookSection from "@/components/about/CloserLookSection";
 
-const AboutPage = () => {
+export default function AboutPage() {
   return (
-    <div>AboutPage</div>
-  )
+    <main>
+      <AboutHero />
+      <LocationSection />
+      {/* <HistorySection /> */}
+      {/* <CloserLookSection /> */}
+    </main>
+  );
 }
-
-export default AboutPage
