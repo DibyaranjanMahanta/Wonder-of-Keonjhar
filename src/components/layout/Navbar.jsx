@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import {
-  ChevronDown,
-  Menu,
-  X,
-  Leaf,
-  Mountain,
-  Landmark,
-} from "lucide-react";
+import { ChevronDown, Menu, X, Leaf, Mountain, Landmark } from "lucide-react";
 
 export default function Navbar() {
   const [exploreOpen, setExploreOpen] = useState(false);
@@ -48,9 +41,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-sand-deep bg-sand/95 text-ink backdrop-blur-sm">
-
       <nav className="mx-auto flex h-[78px] max-w-7xl items-center justify-between px-6 lg:px-10">
-
         {/* ====================================================
             LOGO
         ===================================================== */}
@@ -84,7 +75,6 @@ export default function Navbar() {
         ===================================================== */}
 
         <div className="hidden items-center gap-7 md:flex lg:gap-8">
-
           <NavLink href="/" onClick={handleNavigation}>
             Home
           </NavLink>
@@ -97,34 +87,40 @@ export default function Navbar() {
               EXPLORE
           =================================================== */}
 
-          <div className="relative">
+          <div className="relative flex items-center">
+            {/* Explore Page Link */}
+            <Link
+              href="/explore"
+              onClick={handleNavigation}
+              className={`group relative text-[15px] font-medium transition-colors duration-300 ${
+                exploreOpen ? "text-forest" : "text-ink-soft hover:text-forest"
+              }`}
+            >
+              Explore
+              {/* Underline */}
+              <span
+                className={`absolute -bottom-2 left-0 h-[1.5px] bg-gold transition-all duration-300 ${
+                  exploreOpen ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              />
+            </Link>
+
+            {/* Explore Dropdown Button */}
             <button
               type="button"
               onClick={toggleExplore}
               aria-expanded={exploreOpen}
               aria-haspopup="true"
-              className={`group relative flex items-center gap-1.5 text-[15px] font-medium transition-colors duration-300 ${
-                exploreOpen
-                  ? "text-forest"
-                  : "text-ink-soft hover:text-forest"
+              aria-label="Toggle Explore menu"
+              className={`ml-1 flex items-center justify-center transition-colors duration-300 ${
+                exploreOpen ? "text-forest" : "text-ink-soft hover:text-forest"
               }`}
             >
-              <span>Explore</span>
-
               <ChevronDown
                 size={15}
                 strokeWidth={1.7}
                 className={`transition-transform duration-300 ${
                   exploreOpen ? "rotate-180" : ""
-                }`}
-              />
-
-              {/* Underline */}
-              <span
-                className={`absolute -bottom-2 left-0 h-[1.5px] bg-gold transition-all duration-300 ${
-                  exploreOpen
-                    ? "w-full"
-                    : "w-0 group-hover:w-full"
                 }`}
               />
             </button>
@@ -133,7 +129,7 @@ export default function Navbar() {
             {exploreOpen && (
               <div
                 role="menu"
-                className="absolute left-1/2 top-full mt-3 w-56 -translate-x-1/2 animate-[dropdown_180ms_ease-out] rounded-xl border border-sand-deep bg-sand p-2 shadow-[0_12px_30px_rgba(26,54,40,0.12)]"
+                className="absolute left-0 top-full mt-3 w-56 origin-top animate-[dropdown_180ms_ease-out] rounded-xl border border-sand-deep bg-sand p-2 shadow-[0_12px_30px_rgba(26,54,40,0.12)]"
               >
                 <DropdownLink
                   href="/explore/nature"
@@ -187,23 +183,15 @@ export default function Navbar() {
           type="button"
           onClick={toggleMobile}
           aria-label={
-            mobileOpen
-              ? "Close navigation menu"
-              : "Open navigation menu"
+            mobileOpen ? "Close navigation menu" : "Open navigation menu"
           }
           aria-expanded={mobileOpen}
           className="flex h-10 w-10 items-center justify-center rounded-full border border-sand-deep text-forest transition-all duration-200 hover:border-forest hover:bg-sand-deep active:scale-95 md:hidden"
         >
           {mobileOpen ? (
-            <X
-              size={21}
-              strokeWidth={1.8}
-            />
+            <X size={21} strokeWidth={1.8} />
           ) : (
-            <Menu
-              size={21}
-              strokeWidth={1.8}
-            />
+            <Menu size={21} strokeWidth={1.8} />
           )}
         </button>
       </nav>
@@ -215,43 +203,49 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="animate-[mobileMenu_220ms_ease-out] border-t border-sand-deep bg-sand px-6 pb-6 md:hidden">
           <div className="flex flex-col pt-1">
-
-            <MobileNavLink
-              href="/"
-              onClick={handleNavigation}
-            >
+            <MobileNavLink href="/" onClick={handleNavigation}>
               Home
             </MobileNavLink>
 
-            <MobileNavLink
-              href="/about"
-              onClick={handleNavigation}
-            >
+            <MobileNavLink href="/about" onClick={handleNavigation}>
               About
             </MobileNavLink>
 
-            {/* Mobile Explore */}
-            <button
-              type="button"
-              onClick={toggleExplore}
-              aria-expanded={exploreOpen}
-              className="flex w-full items-center justify-between border-b border-sand-deep py-4 text-left text-[15px] font-medium text-ink-soft transition-colors duration-200 hover:text-forest"
-            >
-              <span>Explore</span>
+            {/* ==================================================
+                MOBILE EXPLORE
+            =================================================== */}
 
-              <ChevronDown
-                size={15}
-                strokeWidth={1.7}
-                className={`transition-transform duration-300 ${
-                  exploreOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+            <div className="flex items-center justify-between border-b border-sand-deep">
+              {/* Explore Page Link */}
+              <Link
+                href="/explore"
+                onClick={handleNavigation}
+                className="flex-1 py-4 text-[15px] font-medium text-ink-soft transition-colors duration-200 hover:text-forest"
+              >
+                Explore
+              </Link>
+
+              {/* Explore Dropdown Button */}
+              <button
+                type="button"
+                onClick={toggleExplore}
+                aria-expanded={exploreOpen}
+                aria-label="Toggle Explore submenu"
+                className="flex px-2 py-4 text-ink-soft transition-colors duration-200 hover:text-forest"
+              >
+                <ChevronDown
+                  size={15}
+                  strokeWidth={1.7}
+                  className={`transition-transform duration-300 ${
+                    exploreOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
 
             {/* Mobile Explore Items */}
             {exploreOpen && (
               <div className="ml-4 animate-[mobileSubmenu_180ms_ease-out] border-l border-gold pl-3">
-
                 <MobileDropdownLink
                   href="/explore/nature"
                   onClick={handleNavigation}
@@ -275,46 +269,30 @@ export default function Navbar() {
                 >
                   Temples
                 </MobileDropdownLink>
-
               </div>
             )}
 
-            <MobileNavLink
-              href="/culture"
-              onClick={handleNavigation}
-            >
+            <MobileNavLink href="/culture" onClick={handleNavigation}>
               Culture
             </MobileNavLink>
 
-            <MobileNavLink
-              href="/festivals"
-              onClick={handleNavigation}
-            >
+            <MobileNavLink href="/festivals" onClick={handleNavigation}>
               Festivals
             </MobileNavLink>
 
-            <MobileNavLink
-              href="/history"
-              onClick={handleNavigation}
-            >
+            <MobileNavLink href="/history" onClick={handleNavigation}>
               History
             </MobileNavLink>
 
-            <MobileNavLink
-              href="/contact"
-              onClick={handleNavigation}
-              last
-            >
+            <MobileNavLink href="/contact" onClick={handleNavigation} last>
               Contact
             </MobileNavLink>
-
           </div>
         </div>
       )}
     </header>
   );
 }
-
 
 /* ============================================================
    DESKTOP NAV LINK
@@ -334,17 +312,11 @@ function NavLink({ href, onClick, children }) {
   );
 }
 
-
 /* ============================================================
    DROPDOWN LINK
 ============================================================ */
 
-function DropdownLink({
-  href,
-  onClick,
-  children,
-  icon: Icon,
-}) {
+function DropdownLink({ href, onClick, children, icon: Icon }) {
   return (
     <Link
       href={href}
@@ -363,17 +335,11 @@ function DropdownLink({
   );
 }
 
-
 /* ============================================================
    MOBILE NAV LINK
 ============================================================ */
 
-function MobileNavLink({
-  href,
-  onClick,
-  children,
-  last = false,
-}) {
+function MobileNavLink({ href, onClick, children, last = false }) {
   return (
     <Link
       href={href}
@@ -387,17 +353,11 @@ function MobileNavLink({
   );
 }
 
-
 /* ============================================================
    MOBILE DROPDOWN LINK
 ============================================================ */
 
-function MobileDropdownLink({
-  href,
-  onClick,
-  children,
-  icon: Icon,
-}) {
+function MobileDropdownLink({ href, onClick, children, icon: Icon }) {
   return (
     <Link
       href={href}

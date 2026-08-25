@@ -1,9 +1,17 @@
-import React from 'react'
+import ExploreHero from "@/components/explore/ExploreHero";
+// import ExploreIntro from "@/components/explore/ExploreIntro";
+// import ExploreCategories from "@/components/explore/ExploreCategories";
+// import FeaturedDestinations from "@/components/explore/FeaturedDestinations";
+// import ExploreCTA from "@/components/explore/ExploreCTA";
 
-const ExplorePage = () => {
+export default function ExplorePage() {
   return (
-    <div>ExplorePage</div>
-  )
+    <main>
+      <ExploreHero />
+      {/* <ExploreIntro /> */}
+      {/* <ExploreCategories /> */}
+      {/* <FeaturedDestinations /> */}
+      {/* <ExploreCTA /> */}
+    </main>
+  );
 }
-
-export default ExplorePage

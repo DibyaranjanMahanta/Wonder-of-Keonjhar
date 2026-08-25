@@ -22,23 +22,23 @@ const highlights = [
 export default function HistorySection() {
   return (
     <section className="py-10 sm:py-12 lg:py-14">
-      <div className="mx-auto grid max-w-7xl gap-14 px-6 sm:px-8 lg:grid-cols-2 lg:gap-24 lg:px-12">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
         
-        {/* Left — Brief History */}
+        {/* Brief History */}
         <div>
           <div className="mb-5 flex items-center gap-3">
             <span className="h-px w-12 bg-gold" />
 
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-gold">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-gold">
               Brief history
             </p>
           </div>
 
-          <h2 className="max-w-xl font-serif text-4xl leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
+          <h2 className="max-w-xl font-serif text-3xl leading-[1.1] text-ink sm:text-4xl lg:text-5xl">
             A princely state turned people's district.
           </h2>
 
-          <div className="mt-6 max-w-xl space-y-5 font-sans text-base leading-7 text-ink-soft sm:text-lg sm:leading-8">
+          <div className="mt-6 max-w-xl space-y-5 font-sans text-sm leading-6 text-ink-soft sm:text-base sm:leading-7">
             <p>
               The Kingdom of Keonjhar was founded in 1480 by Jyoti Bhanja, a
               younger branch of the Mayurbhanj Bhanja dynasty. For more than
@@ -58,34 +58,31 @@ export default function HistorySection() {
 
           <Link
             href="/history"
-            className="mt-8 inline-flex items-center gap-3 font-sans text-sm font-medium text-forest transition-colors hover:text-gold"
+            className="mt-7 inline-flex items-center gap-2 rounded-full border border-forest px-6 py-3 font-sans text-sm font-medium text-forest transition-colors hover:bg-forest hover:text-sand"
           >
             See full historical timeline
             <span aria-hidden="true">→</span>
           </Link>
         </div>
 
-        {/* Right — Highlights */}
-        <div className="lg:pt-2">
-          <div className="mb-8 flex items-center gap-3">
+        {/* What Makes Keonjhar Unique */}
+        <div className="rounded-2xl border border-sand-deep p-6 sm:p-8">
+          <div className="mb-7 flex items-center gap-3">
             <span className="h-px w-12 bg-gold" />
 
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-gold">
+            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-gold">
               What makes Keonjhar unique
             </p>
           </div>
 
-          <div className="border-t border-sand-deep">
+          <div className="space-y-6">
             {highlights.map((item) => (
-              <div
-                key={item.number}
-                className="flex gap-5 border-b border-sand-deep py-6 sm:gap-7"
-              >
-                <span className="font-mono text-xs tracking-[0.15em] text-gold">
+              <div key={item.number}>
+                <span className="font-mono text-xs text-forest">
                   {item.number}
                 </span>
 
-                <p className="font-serif text-xl leading-snug text-ink sm:text-2xl">
+                <p className="mt-1 font-sans text-sm leading-6 text-ink sm:text-base">
                   {item.text}
                 </p>
               </div>
