@@ -47,21 +47,22 @@ export default function Hero() {
             {/* Explore CTA */}
             <Link
               href="/explore"
-              className="group inline-flex items-center justify-center gap-3 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-ink transition-all duration-300 hover:bg-gold-soft"
+              className="group inline-flex items-center justify-center gap-3 rounded-full bg-gold px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-gold-soft"
             >
               Start Exploring
-
               <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
                 →
               </span>
             </Link>
 
-            {/* About CTA */}
             <Link
               href="/about"
-              className="inline-flex items-center justify-center rounded-full border border-sand/50 bg-sand/5 px-7 py-3.5 text-sm font-semibold text-sand backdrop-blur-sm transition-all duration-300 hover:border-sand/80 hover:bg-sand/10"
+              className="group inline-flex items-center justify-center gap-3 rounded-full border border-sand/80 bg-forest-dark/40 px-7 py-3.5 text-sm font-semibold text-white shadow-md backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-sand hover:bg-sand hover:text-forest-dark hover:shadow-lg"
             >
-              About the District
+              Discover Keonjhar
+              <span className="text-lg leading-none transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
             </Link>
           </div>
         </div>

@@ -8,8 +8,7 @@ export default function ExploreHero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('/images/hero/explore-keonjhar.png')",
+          backgroundImage: "url('/images/hero/explore-keonjhar.png')",
         }}
       />
 
@@ -44,10 +43,14 @@ export default function ExploreHero() {
           {/* CTA */}
           <Link
             href="#categories"
-            className="mt-10 inline-flex items-center gap-3 border border-gold/70 px-6 py-3.5 text-sm font-medium text-sand transition hover:bg-gold hover:text-forest-dark"
+            className="mt-10 inline-flex items-center gap-3 rounded-sm bg-gold px-7 py-4 text-sm font-semibold text-forest-dark shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-gold-soft hover:shadow-xl"
           >
             Begin Exploring
-            <ArrowDown size={17} strokeWidth={1.8} />
+            <ArrowDown
+              size={17}
+              strokeWidth={2}
+              className="transition-transform duration-300 group-hover:translate-y-1"
+            />
           </Link>
         </div>
       </div>
