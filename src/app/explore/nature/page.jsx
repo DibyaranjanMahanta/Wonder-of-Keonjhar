@@ -1,4 +1,6 @@
 import FeaturedNature from "@/components/explore/nature/FeaturedNature";
+import NatureCTA from "@/components/explore/nature/NatureCTA";
+import NatureDestinations from "@/components/explore/nature/NatureDestinations";
 import NatureHero from "@/components/explore/nature/NatureHero";
 import NatureIntro from "@/components/explore/nature/NatureIntro";
 
@@ -14,6 +16,8 @@ export default function NaturePage() {
       <NatureHero />
       <NatureIntro/>
       <FeaturedNature/>
+      <NatureDestinations/>
+      <NatureCTA/>
     </>
   );
 }
